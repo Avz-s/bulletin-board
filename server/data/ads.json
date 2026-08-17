@@ -1,0 +1,43 @@
+[
+  {
+    "id": "8b3e2a10-1c2d-4e3f-9a1b-000000000001",
+    "title": "Guzheng for sale",
+    "description": "Travel Guzheng for sale, includes travel bag, tuning tool, leg stands, note stand, 2 extra strings. Good condition.",
+    "category": "for-sale",
+    "price": 1300,
+    "location": { "lat": 32.0809, "lng": 34.7806, "address": "Tel Aviv, Israel" },
+    "createdBy": "demo",
+    "createdAt": "2026-08-01T09:00:00.000Z",
+    "updatedAt": "2026-08-01T09:00:00.000Z"
+  },
+  {
+    "id": "8b3e2a10-1c2d-4e3f-9a1b-000000000002",
+    "title": "Beach house for rent",
+    "description": "Best place to spend the weekend, 2 minutes walk from the beach.",
+    "category": "housing",
+    "price": 900,
+    "location": { "lat": 32.0668, "lng": 34.7647, "address": "Jaffa, Tel Aviv" },
+    "createdBy": "demo",
+    "createdAt": "2026-08-03T09:00:00.000Z",
+    "updatedAt": "2026-08-03T09:00:00.000Z"
+  },
+  {
+    "id": "8b3e2a10-1c2d-4e3f-9a1b-000000000003",
+    "title": "Water fight event this Sunday",
+    "description": "Join us for a fun water fight in the park, all ages welcome.",
+    "category": "events",
+    "location": { "lat": 32.0853, "lng": 34.7818, "address": "Yarkon Park, Tel Aviv" },
+    "createdBy": "avi",
+    "createdAt": "2026-08-05T09:00:00.000Z",
+    "updatedAt": "2026-08-05T09:00:00.000Z"
+  },
+  {
+    "id": "8b3e2a10-1c2d-4e3f-9a1b-000000000004",
+    "title": "Junior frontend developer wanted",
+    "description": "Local startup looking for a junior Angular developer, remote friendly.",
+    "category": "jobs",
+    "createdBy": "avi",
+    "createdAt": "2026-08-07T09:00:00.000Z",
+    "updatedAt": "2026-08-07T09:00:00.000Z"
+  }
+]

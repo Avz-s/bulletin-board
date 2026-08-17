@@ -1,0 +1,24 @@
+<h2 mat-dialog-title>Welcome to the bulletin board</h2>
+
+<mat-dialog-content>
+  <p>Pick a username. It's used to identify ads you create so you can edit or delete them later.</p>
+
+  <!-- Username Input -->
+  <mat-form-field appearance="outline" style="width: 100%">
+    <mat-label>Username</mat-label>
+    <input
+      matInput
+      [(ngModel)]="username"
+      (keyup.enter)="submit()"
+      autofocus
+      maxlength="40"
+    />
+  </mat-form-field>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-flat-button color="primary" [disabled]="!username.trim()" (click)="submit()">
+    ENTER
+  </button>
+</mat-dialog-actions>

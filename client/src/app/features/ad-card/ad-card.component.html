@@ -1,0 +1,48 @@
+<mat-card appearance="outlined" class="ad-card">
+
+  @if (imageSrc; as src) {
+    <img [src]="src" [alt]="ad.title" class="ad-image" mat-card-image />
+  }
+
+  <mat-card-header>
+    <mat-card-title>{{ ad.title }}</mat-card-title>
+    <mat-card-subtitle>
+      {{ categoryLabels[ad.category] }} · posted by {{ ad.createdBy }} ·
+      {{ ad.createdAt | date: 'mediumDate' }}
+    </mat-card-subtitle>
+  </mat-card-header>
+
+
+
+  <mat-card-content>
+    <p class="description">{{ ad.description }}</p>
+
+    @if (ad.price !== undefined) {
+      <p class="price">${{ ad.price }}</p>
+    }
+
+
+    @if (ad.location) {
+      <p class="location">
+        <mat-icon inline>place</mat-icon>
+        {{ ad.location.address || (ad.location.lat.toFixed(3) + ', ' + ad.location.lng.toFixed(3)) }}
+      </p>
+    }
+
+  </mat-card-content>
+
+  @if (isOwner) {
+    <mat-card-actions align="end">
+      <button mat-button (click)="edit.emit()">
+        <mat-icon>edit</mat-icon>
+        Edit
+      </button>
+
+      <button mat-button color="warn" (click)="delete.emit()">
+        <mat-icon>delete</mat-icon>
+        Delete
+      </button>
+      
+    </mat-card-actions>
+  }
+</mat-card>

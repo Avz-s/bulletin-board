@@ -1,0 +1,29 @@
+.location-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.address-field {
+  width: 100%;
+
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.manual-coords {
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.fallback-hint {
+  color: var(--mat-sys-on-surface-variant, #666);
+  font-size: 0.875rem;
+  
+}

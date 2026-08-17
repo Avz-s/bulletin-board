@@ -1,0 +1,88 @@
+<h2 mat-dialog-title>{{ isEdit ? 'Edit ad' : 'New ad' }}</h2>
+
+<form [formGroup]="form" (ngSubmit)="submit()">
+
+  <mat-dialog-content class="form-content">
+
+    <!-- TITLE -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Title</mat-label>
+      <input matInput formControlName="title" maxlength="120" />
+      @if (form.controls.title.hasError('required') && form.controls.title.touched) {
+        <mat-error>Title is required</mat-error>
+      }
+    </mat-form-field>
+
+    <!-- DESCRIPTION -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Description</mat-label>
+      <textarea matInput formControlName="description" rows="4" maxlength="2000"></textarea>
+      @if (form.controls.description.hasError('required') && form.controls.description.touched) {
+        <mat-error>Description is required</mat-error>
+      }
+    </mat-form-field>
+
+    <!-- CATEGORY -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Category</mat-label>
+      <mat-select formControlName="category">
+        @for (category of categories; track category) {
+          <mat-option [value]="category">{{ categoryLabels[category] }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <!-- PRICE -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Price (optional)</mat-label>
+      <input matInput type="number" formControlName="price" min="0" />
+    </mat-form-field>
+
+
+    <!-- IMAGE -->
+    <h3 class="section-label">Image (optional)</h3>
+    <div class="image-upload">
+      @if (imagePreviewSrc; as preview) {
+        <img [src]="preview" alt="Ad image preview" class="image-preview" />
+        <!-- REMOVE IMAGE BUTTON -->
+        <button mat-button type="button" color="warn" (click)="removeImage()">
+          <mat-icon>delete</mat-icon>
+          Remove image
+        </button>
+      } @else {
+        <button mat-stroked-button type="button" [disabled]="uploading()" (click)="fileInput.click()">
+          @if (uploading()) {
+            <mat-spinner diameter="18" class="upload-spinner" />
+          } @else {
+            <mat-icon>image</mat-icon>
+          }
+          {{ uploading() ? 'Uploading…' : 'Choose image' }}
+        </button>
+        <input
+          #fileInput
+          type="file"
+          accept="image/png,image/jpeg,image/webp,image/gif"
+          hidden
+          (change)="onFileSelected($event)"
+        />
+      }
+      @if (uploadError(); as error) {
+        <p class="upload-error">{{ error }}</p>
+      }
+    </div>
+
+    <!-- LOCATION -->
+    <h3 class="section-label">Location (optional)</h3>
+    <app-location-picker
+      [initialLocation]="initialLocation"
+      (locationChange)="onLocationChange($event)"
+    />
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button mat-button type="button" (click)="cancel()">Cancel</button>
+    <button mat-flat-button color="primary" type="submit">
+      {{ isEdit ? 'Save changes' : 'Post ad' }}
+    </button>
+  </mat-dialog-actions>
+</form>

@@ -1,0 +1,33 @@
+.ad-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.ad-image {
+  object-fit: cover;
+  max-height: 180px;
+}
+
+.description {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+
+.price {
+  font-weight: 600;
+  // font-style: italic;
+  margin: 0.25rem 0;
+}
+
+
+.location {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  // color: black;
+  color: var(--mat-sys-on-surface-variant, #666);
+
+  font-size: 0.875rem;
+}

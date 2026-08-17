@@ -1,0 +1,79 @@
+<div class="location-picker">
+  @if (mapsAvailable()) {
+    <!-- TODO: move styles to CSS -->
+    <google-map
+      height="260px"
+      width="100%"
+      [center]="center()"
+      [zoom]="13"
+      (mapClick)="onMapClick($event)"
+    >
+      <!-- TODO: Check if marker is valid -->
+      @if (marker(); as position) {
+        <map-marker [position]="position" />
+      }
+    </google-map>
+
+    <mat-form-field appearance="outline" class="address-field">
+      <mat-label>Address / label (optional)</mat-label>
+      <input matInput [(ngModel)]="address" (ngModelChange)="onAddressChange()" />
+    </mat-form-field>
+
+    <div class="actions">
+      <!-- TODO: MOVE -->
+      <button mat-stroked-button type="button" (click)="useCurrentLocation()">
+        <mat-icon>my_location</mat-icon>
+        Use my current location
+      </button>
+
+      @if (marker()) {
+        <button mat-button type="button" color="warn" (click)="clearLocation()">
+          Clear location
+        </button>
+      }
+    </div>
+  } @else if (mapsFailed()) {
+
+    <p class="fallback-hint">
+      Google Maps couldn't be loaded (missing or invalid API key). You can still enter
+      coordinates manually, or leave the location empty.
+    </p>
+    <div class="manual-coords">
+      <!-- LATITUDE -->
+      <mat-form-field appearance="outline">
+        <mat-label>Latitude</mat-label>
+
+        <input
+          matInput
+          type="number"
+          [(ngModel)]="manualLat"
+          (ngModelChange)="onManualCoordsChange()"
+        />
+      </mat-form-field>
+
+      <!-- LONGITUDE -->
+      <mat-form-field appearance="outline">
+        <mat-label>Longitude</mat-label>
+        <input
+          matInput
+          type="number"
+          [(ngModel)]="manualLng"
+          (ngModelChange)="onManualCoordsChange()"
+        />
+      </mat-form-field>
+
+      <!-- ADDRESS -->
+      <mat-form-field appearance="outline">
+        <mat-label>Address / label (optional)</mat-label>
+        <input matInput [(ngModel)]="address" (ngModelChange)="onAddressChange()" />
+      </mat-form-field>
+      <button mat-stroked-button type="button" (click)="useCurrentLocation()">
+        <mat-icon>my_location</mat-icon>
+        Use my current location
+      </button>
+    </div>
+  } @else {
+    <!-- TODO: Add loading state and when it has failed -->
+    <p class="fallback-hint">Loading map…</p>
+  }
+</div>

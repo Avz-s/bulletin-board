@@ -1,0 +1,66 @@
+<mat-toolbar color="primary">
+  <span>Bulletin Board</span>
+
+  <span class="spacer"></span>
+  
+  <!-- Show username -->
+  @if (userService.username(); as username) {
+    <span class="username">Hi, {{ username }}</span>
+  }
+
+  <!-- Add new ad  should be moved-->
+  <button mat-flat-button (click)="openCreateDialog()">
+    <mat-icon>add</mat-icon>
+    New ad
+  </button>
+</mat-toolbar>
+
+<div class="filters">
+  <!-- Search by phrase -->
+  <mat-form-field appearance="outline" class="search-field">
+    <mat-label>Search</mat-label>
+    <input matInput [(ngModel)]="search" (ngModelChange)="onSearchChange()" placeholder="Search title or description" />
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+
+  <!-- Filter by category -->
+  <mat-form-field appearance="outline" class="category-field">
+    <mat-label>Category</mat-label>
+    <mat-select [(ngModel)]="selectedCategory" (selectionChange)="onCategoryChange()">
+      <mat-option [value]="null">All categories</mat-option>
+      @for (category of categories; track category) {
+        <mat-option [value]="category">{{ categoryLabels[category] }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+
+
+  <!-- Filter by location -->
+  <button mat-stroked-button [color]="nearMeActive() ? 'primary' : undefined" (click)="toggleNearMe()">
+    <mat-icon>my_location</mat-icon>
+    {{ nearMeActive() ? 'Near me (on)' : 'Near me' }}
+  </button>
+</div>
+
+@if (loading()) {
+  <div class="loading">
+    <mat-spinner diameter="40" />
+  </div>
+} @else if (ads().length === 0) {
+  <!-- TODO: Should display when there is error -->
+  <p class="empty-state">No ads match your filters yet.</p>
+} @else {
+
+  <div class="ad-grid">
+
+    @for (ad of ads(); track ad.id) {
+      <app-ad-card
+        [ad]="ad"
+        [isOwner]="isOwner(ad)"
+        (edit)="openEditDialog(ad)"
+        (delete)="deleteAd(ad)"
+      />
+    }
+    
+  </div>
+}

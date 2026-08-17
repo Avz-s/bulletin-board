@@ -1,0 +1,48 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+.username {
+  margin-right: 1rem;
+  font-size: 0.9rem;
+}
+
+.filters {
+  // display: block;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1rem;
+}
+
+.search-field {
+  flex: 2 1 260px;
+}
+
+.category-field {
+  flex: 1 1 200px;
+}
+
+.loading {
+
+  display: flex;
+  justify-content: center;
+  padding: 3rem;
+}
+
+.empty-state {
+  text-align: center;
+  color: var(--mat-sys-on-surface-variant, #666);
+
+  padding: 3rem 1rem;
+}
+
+.ad-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+
+  gap: 1rem;
+  padding: 0 1rem 1.5rem;
+
+}

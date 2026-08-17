@@ -41,8 +41,6 @@ export class CreateAdDto {
   location?: LocationDto;
 
 
-  // user: string; // This will be set in the service based on the authenticated user
-
   @IsOptional()
   @ValidateIf((_, value) => value !== null)
   @IsString()

@@ -27,13 +27,11 @@ export class QueryAdsDto {
   @IsOptional()
   @Type(() => Number)
   @IsLatitude()
-  // @IsNumber()
   lat?: number;
 
   @IsOptional()
   @Type(() => Number)
   @IsLongitude()
-  // @IsNumber()
   lng?: number;
 
   @IsOptional()

@@ -32,36 +32,4 @@ export class GeolocationService {
     });
   }
 
-
-
-
-// return new Promise((resolve, reject) => {
-//     // 1. Check browser support
-//     if (!navigator.geolocation) {
-//       return reject(new Error("Geolocation is not supported by this browser."));
-//     }
-
-//     function success(position) {
-//       resolve({
-//         lat: position.coords.latitude,
-//         lng: position.coords.longitude,
-//         accuracy: position.coords.accuracy // Bonus: track accuracy in meters
-//       });
-//     }
-
-//     function error(err) {
-//       // 2. Fallback if high accuracy times out
-//       if (err.code === err.TIMEOUT && options.enableHighAccuracy) {
-//         console.warn("High accuracy timed out. Falling back to low accuracy...");
-//         options.enableHighAccuracy = false;
-//         options.timeout = 5000; // Give fallback 5 seconds
-//         navigator.geolocation.getCurrentPosition(success, reject, options);
-//       } else {
-//         reject(err);
-//       }
-//     }
-
-//     navigator.geolocation.getCurrentPosition(success, error, options);
-//   });
-
 }

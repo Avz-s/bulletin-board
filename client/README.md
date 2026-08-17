@@ -2,6 +2,8 @@
 
 Angular + Angular Material SPA for the bulletin board app: search/filter ads, post new ones with an optional image and map location, and edit or delete the ones you created.
 
+Built and tested with **Node v18.20.8** / **npm 10.8.2**.
+
 ## Running
 
 ```bash

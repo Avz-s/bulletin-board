@@ -2,11 +2,9 @@ import { IsLatitude, IsLongitude, IsNumber, IsOptional, IsString } from 'class-v
 
 export class LocationDto {
   @IsLatitude()
-  // @IsNumber()
   lat: number;
 
   @IsLongitude()
-  // @IsNumber()
   lng: number;
 
   @IsOptional()

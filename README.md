@@ -9,6 +9,8 @@ A classifieds-style bulletin board SPA: a NestJS REST API backed by a local JSON
 
 ## Running locally
 
+Built and tested with **Node v18.20.8** / **npm 10.8.2** — a recent Node 18+/npm 10+ should work fine.
+
 ### 1. Server
 
 ```bash

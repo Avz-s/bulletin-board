@@ -6,7 +6,6 @@ export const AD_CATEGORIES = [
   'jobs',
 ] as const;
 
-// export type AdCategory = 'for-sale' | 'housing' | 'services' | 'events' | 'jobs';
 
 export type AdCategory = (typeof AD_CATEGORIES)[number];
 
@@ -38,7 +37,6 @@ export interface Ad {
   createdBy: string;
   createdAt: string;
   updatedAt: string;
-  // user: string;
 }
 
 export interface CreateAdInput {
@@ -48,7 +46,6 @@ export interface CreateAdInput {
   price?: number;
   location?: AdLocation;
   imageUrl?: string | null;
-  // user: string;
 }
 
 
@@ -58,7 +55,6 @@ export interface AdFilters {
   lat?: number;
   lng?: number;
   radiusKm?: number;
-  // user: string;
 }
 
 export type UpdateAdInput = Partial<CreateAdInput>;

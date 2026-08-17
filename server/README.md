@@ -1,5 +1,6 @@
 # Bulletin Board — Server
 
+Built and tested with **Node v18.20.8** / **npm 10.8.2**.
 
 ## Running
 

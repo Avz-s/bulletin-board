@@ -6,6 +6,5 @@ export const AD_CATEGORIES = [
   'jobs',
 ] as const;
 
-// export type AdCategory = 'for-sale' | 'housing' | 'services' | 'events' | 'jobs';
 
 export type AdCategory = (typeof AD_CATEGORIES)[number];
